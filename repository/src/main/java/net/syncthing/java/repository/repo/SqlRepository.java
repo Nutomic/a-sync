@@ -25,6 +25,7 @@ import com.google.protobuf.ByteString;
 import com.google.protobuf.InvalidProtocolBufferException;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
+import net.syncthing.java.bep.BlockExchangeProtos;
 import net.syncthing.java.core.beans.*;
 import net.syncthing.java.core.beans.FileInfo.FileType;
 import net.syncthing.java.core.beans.FileInfo.Version;
@@ -413,7 +414,7 @@ public final class SqlRepository implements Closeable, IndexRepository, DeviceAd
                     prepareStatement.setString(3, newFileBlocks.getHash());
                     prepareStatement.setLong(4, newFileBlocks.getSize());
                     prepareStatement.setBytes(5, IndexSerializationProtos.Blocks.newBuilder()
-                        .addAllBlocks(Iterables.transform(newFileBlocks.getBlocks(), input -> IndexSerializationProtos.BlockInfo.newBuilder()
+                        .addAllBlocks(Iterables.transform(newFileBlocks.getBlocks(), input -> BlockExchangeProtos.BlockInfo.newBuilder()
                             .setOffset(input.getOffset())
                             .setSize(input.getSize())
                             .setHash(ByteString.copyFrom(BaseEncoding.base16().decode(input.getHash())))
