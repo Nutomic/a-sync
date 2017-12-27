@@ -76,13 +76,15 @@ message FileInfo {
     optional uint32       permissions    = 4;
     optional int64        modified_s     = 5;
     optional int32        modified_ns    = 11;
+    optional uint64       modified_by    = 12;
     optional bool         deleted        = 6;
     optional bool         invalid        = 7;
     optional bool         no_permissions = 8;
     optional Vector       version        = 9;
     optional int64        sequence       = 10;
 
-    repeated BlockInfo Blocks = 16;
+    repeated BlockInfo Blocks         = 16;
+    optional string    symlink_target = 17;
 }
 
 enum FileInfoType {
@@ -90,13 +92,14 @@ enum FileInfoType {
     DIRECTORY         = 1;
     SYMLINK_FILE      = 2;
     SYMLINK_DIRECTORY = 3;
-    SYMLINK_UNKNOWN   = 4;
+    SYMLINK           = 4;
 }
 
 message BlockInfo {
-    optional  int64 offset = 1;
-    optional  int32 size   = 2;
-    optional  bytes hash   = 3;
+    optional  int64  offset    = 1;
+    optional  int32  size      = 2;
+    optional  bytes  hash      = 3;
+    optional  uint32 weak_hash = 4;
 }
 
 message Vector {
