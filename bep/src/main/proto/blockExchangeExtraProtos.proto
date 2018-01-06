@@ -1,0 +1,7 @@
+package net.syncthing.java.bep;
+
+import "blockExchangeProtos.proto";
+
+message Blocks {
+    repeated BlockInfo blocks = 1;
+}

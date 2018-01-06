@@ -1,7 +1,0 @@
-package net.syncthing.java.repository.repo;
-
-import "blockExchangeProtos.proto";
-
-message Blocks {
-    repeated net.syncthing.java.bep.BlockInfo blocks = 1;
-}
