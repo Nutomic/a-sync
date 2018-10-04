@@ -1,4 +1,4 @@
-# a-sync
+## This project was merged into [syncthing-lite](https://github.com/syncthing/syncthing-lite). The repository only exists for historic reasons.
 
 [![MPLv2 License](https://img.shields.io/badge/license-MPLv2-blue.svg?style=flat-square)](https://www.mozilla.org/MPL/2.0/)
 
